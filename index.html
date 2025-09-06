@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Red Spice Restaurant | Fine Dining Experience</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="header-content">
+        <h1>Red Spice Restaurant</h1>
+        <p>Experience the finest culinary delights with our exquisite menu</p>
+      </div>
+    </header>
+
+    <!-- Main container -->
+    <div class="container">
+      <!-- Left Column -->
+      <div>
+        <!-- Controls Section -->
+        <div class="controls">
+          <input type="text" id="search" placeholder="Search for a dish..." />
+          <select id="filter">
+            <option value="all">All Categories</option>
+            <option value="starter">Starters</option>
+            <option value="main">Main Courses</option>
+            <option value="dessert">Desserts</option>
+            <option value="beverage">Beverages</option>
+          </select>
+          <select id="sort">
+            <option value="none">Sort By</option>
+            <option value="priceLow">Price: Low to High</option>
+            <option value="priceHigh">Price: High to Low</option>
+            <option value="name">Name (A-Z)</option>
+          </select>
+          <button id="adminToggle">
+            <i class="fas fa-user-cog"></i> Admin
+          </button>
+        </div>
+
+        <!-- Menu Section -->
+        <div class="menu" id="menu">
+          <!-- Menu items will be populated by JavaScript -->
+        </div>
+      </div>
+
+      <!-- Cart Section -->
+      <div class="cart">
+        <h2><i class="fas fa-shopping-cart"></i> Your Order</h2>
+        <div id="cartItems">
+          <div class="empty-cart">
+            <i
+              class="fas fa-shopping-cart"
+              style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3"
+            ></i>
+            <p>Your cart is empty</p>
+          </div>
+        </div>
+        <div class="cart-footer">
+          <div class="cart-total">
+            <span>Total:</span>
+            <span id="total">$0.00</span>
+          </div>
+          <button class="checkout-btn" id="checkoutBtn" disabled>
+            <i class="fas fa-lock"></i> Checkout
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div class="admin" id="adminPanel">
+      <div class="tabs">
+        <div class="tab active" data-tab="login">Login</div>
+        <div class="tab" data-tab="dashboard">Dashboard</div>
+        <div class="tab" data-tab="menuManagement">Menu Management</div>
+      </div>
+
+      <div class="tab-content active" id="loginTab">
+        <h2>Admin Login</h2>
+        <div class="admin-input-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="Enter your username" />
+        </div>
+        <div class="admin-input-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+          />
+        </div>
+        <button class="admin-btn" id="loginBtn">
+          <i class="fas fa-sign-in-alt"></i> Login
+        </button>
+      </div>
+
+      <div class="tab-content" id="dashboardTab">
+        <h2>Admin Dashboard</h2>
+        <div class="admin-input-group">
+          <label for="dishName">Dish Name</label>
+          <input type="text" id="dishName" placeholder="Enter dish name" />
+        </div>
+        <div class="admin-input-group">
+          <label for="dishDesc">Description</label>
+          <textarea
+            id="dishDesc"
+            placeholder="Enter dish description"
+            rows="3"
+          ></textarea>
+        </div>
+        <div class="admin-input-group">
+          <label for="dishPrice">Price</label>
+          <input
+            type="number"
+            id="dishPrice"
+            placeholder="Enter price"
+            min="0"
+            step="0.01"
+          />
+        </div>
+        <div class="admin-input-group">
+          <label for="dishCategory">Category</label>
+          <select id="dishCategory">
+            <option value="starter">Starter</option>
+            <option value="main">Main Course</option>
+            <option value="dessert">Dessert</option>
+            <option value="beverage">Beverage</option>
+          </select>
+        </div>
+        <div class="admin-input-group">
+          <label for="dishImg">Image URL</label>
+          <input type="text" id="dishImg" placeholder="Enter image URL" />
+        </div>
+        <button class="admin-btn" id="addDishBtn">
+          <i class="fas fa-plus"></i> Add Dish
+        </button>
+      </div>
+
+      <div class="tab-content" id="menuManagementTab">
+        <h2>Menu Management</h2>
+        <p>Edit or remove existing menu items:</p>
+        <div class="dishes-list" id="dishesList">
+          <!-- Dishes will be populated here -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+      <i class="fas fa-info-circle"></i>
+      <span id="notificationText"></span>
+    </div>
+
+    <footer>
+      <p>&copy; 2023 Shobair Kazemi. All rights reserved.</p>
+    </footer>
+    <script src="dishes.js"></script>
+    <script src="script.js">
+  
+    </script>
+  </body>
+</html>
